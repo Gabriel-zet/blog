@@ -1,0 +1,33 @@
+<%-include('partials/header.ejs') %>
+<%-include('partials/homenavbar.ejs') %>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo!</h1>
+            <p class="lead">Este é um simples blog...</p>
+            <hr class="my-4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos ut, modi debitis tempore ab aspernatur quis culpa temporibus magni iste repudiandae, neque blanditiis molestias ullam nam autem asperiores natus!.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button"></a>
+          </div>   
+        <hr>    
+<br>
+        <% articles.forEach(article => { %>
+            <div class="card">
+                <div class="card-header">
+                    <h2><%= article.tittle %></h2>
+                </div>
+                <div class="card-body">
+                    <a href="/<%= article.slug %>" class="btn btn-success">Ler </a>
+                </div>
+
+            </div>
+<br>
+        <%})%>
+    </div>
+
+    <img weight="200" width="50" src="/img/dancingduck.gif" alt="">
+
+</body>
+
+
+<%-include('partials/footer.ejs') %>

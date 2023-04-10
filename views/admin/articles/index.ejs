@@ -1,0 +1,60 @@
+<%-include('../../partials/header.ejs') %>
+<%-include('../../partials/navbar.ejs') %>
+
+    <div class="container">
+        <hr>
+        <h2>
+            Artigos
+        </h2>
+        <a href="/admin/articles/new" class="btn btn-success">Criar novo artigo</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Slug</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% articles.forEach(article => { %>
+                    <tr>        
+                        <td><%= article.id %></td>
+                        <td><%= article.tittle %></td>
+                        <td><%= article.slug %></td>
+                        <td>
+                            <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning" >Editar</a>
+
+                            <form action="/articles/delete" method="POST" style="display: inline" onsubmit="confirmDel(event, this)" >
+                                <input type="hidden" name="iddel" value=" <%= article.id %> ">
+                                <button type="submit" class="btn btn-danger">Deletar</button>
+                            
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+
+<%-include('../../partials/footer.ejs')%>
+
+<script>
+    function confirmDel(event, form){
+        event.preventDefault();
+        var choice = confirm("Você tem certeza que irá deletar esse artigo?")
+        if(choice){
+            form.submit()
+        }else{
+        alert("Operação cancelada!")
+         }
+    }
+</script>
+
+
+
+
+
+
