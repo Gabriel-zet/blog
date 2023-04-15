@@ -1,0 +1,51 @@
+<%-include('../../partials/header.ejs') %>
+<%-include('../../partials/navbar.ejs') %>
+<div class="container">
+<hr>
+  <div class="card">
+    <div class="card-header">
+      <h2>Edição de Artigo</h2>
+    </div>
+      <div class="card-body">
+        <form method="post" action="/articles/update">
+          <input type="hidden" name="id" value="<%= article.id %>">
+          <input class="form-control" type="text" name="tittle" placeholder="Defina o titulo do artigo" value="<%= article.tittle %>">
+          <textarea class="form-control" placeholder="Escreva o artigo aqui" name="body" id="caixapesq" value="<%= article.body %>"></textarea><br>
+            <label>Categoria</label>
+          <select name="category" class="form-control">
+            <% categories.forEach(category => { %>
+              <% if (category.id == article.categoriaId) { %>
+                <option value="<%= category.id %>" selected> <%= category.tittle %> </option>
+              <% } else { %>
+                <option value="<%= category.id %>"> <%= category.tittle %> </option>
+              <% } %>  
+              <% }) %>
+          </select> <br>
+        <button class="btn btn-success">Atualizar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="content" style="display: none;">
+  <%- article.body %>
+</div>
+
+
+<%-include('../../partials/footer.ejs') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/tinymce.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/jquery.tinymce.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5.8.2-114/langs/pt_BR.js"></script>
+<script>
+  tinymce.init({
+    selector: "#caixapesq",
+    plugins: [
+      'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons' 
+    ],
+    init_instance_callback: () => {
+      tinymce.get("caixapesq").setContent($("#content").html())
+    }
+  })
+</script>

@@ -14,7 +14,7 @@
             <label>Categoria</label>
             <select name="category" class="form-control">
               <% categories.forEach(category => { %>
-                  <option value="<%= category.id %>">"> <%= category.tittle %> </option>
+                  <option value="<%= category.id %>"><%= category.tittle %> </option>
                 <% })%>
             </select> <br>
             <button class="btn btn-success">Cadastrar</button>
