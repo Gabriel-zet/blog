@@ -18,18 +18,16 @@
             </thead>
             <tbody>
                 <% articles.forEach(article => { %>
-                    <tr>        
+                    <tr>
                         <td><%= article.id %></td>
                         <td><%= article.tittle %></td>
                         <td><%= article.slug %></td>
                         <td>
                             <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning" >Editar</a>
-
-                            <form action="/articles/delete" method="POST" style="display: inline" onsubmit="confirmDel(event, this)" >
-                                <input type="hidden" name="iddel" value=" <%= article.id %> ">
-                                <button type="submit" class="btn btn-danger">Deletar</button>
-                            
-                            </form>
+                            <form method="POST" action="/articles/delete" style="display: inline;" onsubmit="confirmDel(event, this)">
+                            <input type="hidden" name="iddel" value="<%= article.id %>">
+                            <button class="btn btn-danger">Deletar</button>
+                            </form> 
                         </td>
                     </tr>
                 <% }) %>
@@ -49,7 +47,7 @@
             form.submit()
         }else{
         alert("Operação cancelada!")
-         }
+        }
     }
 </script>
 

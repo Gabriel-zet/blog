@@ -1,13 +1,15 @@
 <%-include('partials/header.ejs') %>
 <%-include('partials/homenavbar.ejs') %>
+
 <body>
-    <div class="container">
+<div class="container">
         <div class="jumbotron">
             <h1 class="display-4">Bem vindo!</h1>
             <p class="lead">Este é um simples blog...</p>
             <hr class="my-4">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos ut, modi debitis tempore ab aspernatur quis culpa temporibus magni iste repudiandae, neque blanditiis molestias ullam nam autem asperiores natus!.</p>
             <a class="btn btn-primary btn-lg" href="#" role="button"></a>
+        </div>
 <hr>
 <div>
     <% articles.forEach(article => { %>
@@ -21,6 +23,14 @@
         </div>
     <% }) %>
 </div>
+
+<div class="row">
+    <div class="col col-12">
+        <a class="btn btn-info" style="float: right" href="/articles/page/2">Next </a>
+    </div>
+
+</div>
+
 </body>
 
 

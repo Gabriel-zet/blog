@@ -1,26 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a href="/" class="navbar-brand">blog2</a>
+    <a href="/" class="navbar-brand">
+        blog
+    </a>
 
     <ul class="navbar-nav mr-auto">
-
         <li class="nav-item">
-            <a href="/" class="nav-link">home</a>
-<br>
+            <a class="nav-link" href="/admin/categories">Categorias</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/articles">Artigos</a>
         </li>
-        <% categories.forEach(category => { %>
-
-            <li class="nav-item">
-                <a href="/category/<%= category.slug %>" class="nav-link"><%= category.tittle %> </a>
-<br>
-            </li>
-        <%})%>
-
-
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/users">Usuarios</a>
+        </li>
 
     </ul>
 
 </nav>
-
-<script>
-
-</script>
